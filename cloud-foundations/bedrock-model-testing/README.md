@@ -1,4 +1,4 @@
-#Amazon Bedrock Model Testing
+# Amazon Bedrock Model Testing
 
 ## Objective
 Explore Amazon Bedrock by testing available foundation models and understanding how prompts and changing configurations affect responses.
