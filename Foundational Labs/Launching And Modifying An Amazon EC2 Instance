@@ -1,0 +1,33 @@
+# Launching an Amazon EC2 Instance
+
+## Overview
+In this lab, I learned how to launch, manage, and terminate an Amazon EC2 instance. The goal was to understand how to select instance types, modify instance settings, and perform basic instance lifecycle operations in AWS.
+
+## Tools & Services Used
+- AWS EC2
+- AWS Management Console
+
+## What I Did
+ Navigated to the EC2 Instances tab in the AWS Console.
+ Searched for and selected a specific instance type (T3.micro, free tier eligible).
+ Launched the instance.
+ Stopped the instance to modify settings.
+ Increased the instance volume and changed the instance type.
+ Restarted the instance and verified it was running.
+ Terminated the instance to complete the lab.
+
+## Key Concepts Learned
+- How to navigate and use the EC2 dashboard.
+- Selecting and launching specific EC2 instance types.
+- Stopping, modifying, and restarting an EC2 instance.
+- Increasing volume size and changing instance types.
+- Properly terminating an EC2 instance.
+
+## Challenges & Fixes
+- Issue encountered:
+  - Ensuring the Instance was terminated, so no charges occured once finished with the lab.
+  - Resolved by following the AWS documentation step-by-step.
+
+## Outcome
+I successfully launched an EC2 instance, modified its volume and type, verified it was running, and then terminated it. I now understand the basic lifecycle and management of EC2 instances.
+
