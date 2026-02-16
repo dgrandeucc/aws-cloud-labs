@@ -1,0 +1,65 @@
+# Managing Linux Users and Groups on an EC2 Instance Using Session Manager
+
+## Overview
+In this lab, I connected to a Linux EC2 instance using AWS Systems Manager Session Manager and implemented a structured user and group management system. The goal was to replace shared job-role accounts with individual user accounts and enforce proper access control using Linux users and groups.
+
+## Tools & Services Used
+- AWS EC2
+- AWS Systems Manager (Session Manager)
+- IAM (preconfigured role permissions)
+- Linux command line
+- AWS Management Console
+
+## What I Did
+Step-by-step summary in plain English:
+
+1. Connected to a running EC2 Linux instance using Session Manager from the AWS Console.
+2. Verified my working directory using `pwd`.
+3. Created a new Linux user (`arosalez`) using `sudo useradd`.
+4. Assigned a password using `sudo passwd`.
+5. Verified user creation by checking the `/etc/passwd` file.
+6. Created a new Linux group (`Sales`) using `sudo groupadd`.
+7. Verified groups by reviewing the `/etc/group` file.
+8. Added users to the appropriate groups using `sudo usermod -a -G`.
+9. Confirmed group memberships by reviewing `/etc/group`.
+10. Switched to a newly created user using `su arosalez`.
+11. Verified identity with `whoami`.
+12. Attempted to create a file in another user’s home directory and received a permission denied error.
+13. Attempted to use `sudo` and confirmed the user was not in the sudoers file.
+14. Switched back to the admin user.
+15. Reviewed system logs using `sudo journalctl` to verify that unauthorized sudo attempts were logged.
+
+## Key Concepts Learned
+- Connecting securely to EC2 using Session Manager (without SSH keys).
+- Creating and managing Linux users with `useradd` and `passwd`.
+- Understanding how `/etc/passwd` and `/etc/group` store account information.
+- Creating and managing Linux groups for role-based access control.
+- Using `usermod` to assign users to multiple groups.
+- Linux file permission behavior and access restrictions.
+- Understanding sudo privileges and the sudoers file.
+- Viewing system logs with `journalctl` to audit activity.
+
+## Challenges & Fixes
+- Issue encountered:
+  - The sales manager user could not create files in another user's home directory.
+  - Attempting to use `sudo` failed because the user was not in the sudoers file.
+- Resolution:
+  - Verified that this behavior was expected due to proper permission restrictions.
+  - Reviewed system logs to confirm the unauthorized attempt was recorded.
+
+## Outcome
+I successfully:
+- Connected to an EC2 instance using Session Manager.
+- Created individual Linux users for employees.
+- Created job-based groups.
+- Assigned users to appropriate groups.
+- Tested access control by switching users.
+- Verified that unauthorized actions were logged.
+
+This lab strengthened my understanding of Linux user management, permission control, and administrative auditing within a cloud-hosted EC2 environment.
+
+## Notes / Next Steps
+- Extend this lab by configuring file-level permissions for specific groups.
+- Practice granting limited sudo privileges using the sudoers file.
+- Automate user and group creation using shell scripts.
+- Perform similar setup using AWS CLI instead of the console.
