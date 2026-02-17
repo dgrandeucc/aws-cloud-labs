@@ -1,0 +1,66 @@
+# Managing File Ownership and Permissions in Linux on EC2
+
+## Overview
+In this lab, I practiced managing Linux file and directory ownership and permissions within an EC2 instance. The objective was to implement proper access control for company departments by changing directory ownership, modifying permission modes using both symbolic and absolute methods, and verifying access restrictions between users.
+
+## Tools & Services Used
+- AWS EC2
+- AWS Systems Manager (Session Manager)
+- Linux command line
+- chmod, chown, ls, cat, su commands
+
+## What I Did
+Step-by-step summary in plain English:
+
+1. Navigated to the AnyCompany directory.
+2. Changed directory ownership recursively using `chown -R`:
+   - Assigned the AnyCompany directory to the CEO (mjackson) and group Personnel.
+   - Assigned the Shipping directory to the shipping manager (eowusu) and group Shipping.
+3. Verified ownership changes using `ls -laR`.
+4. Switched users to the CEO account using `su`.
+5. Created test files to practice permission changes.
+6. Used symbolic mode (`chmod u+w`) to modify file permissions.
+7. Used absolute mode (`chmod 760`) to assign specific numeric permissions.
+8. Verified permission changes using `ls -l`.
+9. Switched back to the admin user and tested file access using `cat`.
+10. Confirmed permission restrictions by observing "Permission denied" errors.
+11. Changed ownership of the Sales directory to the appropriate sales manager and associated group.
+12. Verified final ownership and permissions using recursive directory listing.
+
+## Key Concepts Learned
+- Understanding Linux file ownership (user and group).
+- Using `chown` to change ownership recursively.
+- Reading permission structures from `ls -l` output.
+- Symbolic permission modification using `chmod` (u, g, a).
+- Absolute permission assignment using numeric values (e.g., 760).
+- How read (4), write (2), and execute (1) combine in numeric permissions.
+- Testing and validating access control between different users.
+- Applying role-based access control in a Linux environment hosted on EC2.
+
+## Challenges & Fixes
+- Issue encountered:
+  - Confusion interpreting permission strings (e.g., rwxr-xr-x).
+- Resolution:
+  - Broke down permissions into owner, group, and others sections.
+  - Practiced mapping numeric values (4, 2, 1) to permission types.
+  
+- Issue encountered:
+  - Permission denied errors when accessing files.
+- Resolution:
+  - Verified ownership and permission settings using `ls -l`.
+  - Confirmed that restrictions were functioning as intended.
+
+## Outcome
+I successfully:
+- Modified directory ownership for multiple departments.
+- Applied both symbolic and absolute permission changes.
+- Verified that permissions enforced correct access control.
+- Demonstrated how different user roles affect file access.
+
+This lab strengthened my understanding of Linux file system security, ownership management, and permission modeling within a cloud-hosted EC2 environment.
+
+## Notes / Next Steps
+- Practice setting default permissions using `umask`.
+- Configure shared directories using group-based collaboration models.
+- Explore Access Control Lists (ACLs) for more granular permissions.
+- Automate permission setup using shell scripting.
