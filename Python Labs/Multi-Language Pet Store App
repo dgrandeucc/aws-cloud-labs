@@ -1,0 +1,72 @@
+# Multi-Language Pet Care Application Using Amazon Translate (Python)
+
+## Overview
+In this lab, I built a multi-language pet information application for AnyCompany Pet Store using Python and Amazon Translate. The goal was to eliminate language barriers by translating pet profile information from English into multiple supported languages.
+
+The project integrated AWS SDK for Python (Boto3) with Amazon Translate and demonstrated the use of nested dictionaries, modular function design, and user input validation.
+
+## Tools & Services Used
+- Amazon Translate
+- AWS SDK for Python (Boto3)
+- Python 3
+- AWS Code Editor (Cloud IDE)
+- Amazon Q (AI coding assistant)
+
+## What I Did
+Step-by-step summary in plain English:
+
+1. Imported the boto3 library and created an Amazon Translate client.
+2. Built a `translate_text()` function to send text to Amazon Translate and return translated output.
+3. Tested the function with English-to-Spanish and English-to-German translations.
+4. Reviewed and worked with a nested Python dictionary representing a pet database.
+5. Created a language lookup dictionary to map language names to language codes.
+6. Implemented a `format_pet_info()` function using multi-line f-strings to display pet details.
+7. Created a `translate_pet_info()` function to translate pet background descriptions.
+8. Built a `main()` function to:
+   - Accept user input for pet ID
+   - Validate the pet ID
+   - Accept a preferred language
+   - Validate supported languages
+   - Translate pet background information
+   - Display formatted results
+9. Tested the application with valid and invalid inputs to verify error handling.
+
+## Key Concepts Learned
+- Integrating AWS services using Boto3.
+- Making API calls to Amazon Translate with `translate_text()`.
+- Working with nested Python dictionaries.
+- Using dictionary `.get()` method for safe lookups.
+- Writing modular, reusable Python functions.
+- Using multi-line f-strings for clean formatting.
+- Handling user input and validation logic.
+- Designing a simple interactive CLI application.
+
+## Challenges & Fixes
+- Issue encountered:
+  - Understanding the structure of the response returned from Amazon Translate.
+  - Resolution: Accessed the `'TranslatedText'` key from the response dictionary.
+
+- Issue encountered:
+  - Handling unsupported language inputs.
+  - Resolution: Used dictionary `.get()` method to return `None` and implemented validation checks.
+
+- Issue encountered:
+  - Ensuring user input matched pet database keys.
+  - Resolution: Converted user input to uppercase using `.upper()`.
+
+## Outcome
+I successfully built an interactive command-line application that:
+
+- Retrieves pet information from a nested dictionary.
+- Translates pet background descriptions into multiple languages.
+- Validates user inputs.
+- Displays formatted pet profiles in the user’s preferred language.
+
+This project strengthened my understanding of cloud service integration, API consumption, and modular Python development.
+
+## Notes / Next Steps
+- Extend the application to translate additional fields beyond background descriptions.
+- Add support for more languages.
+- Implement error handling using try/except blocks.
+- Convert the CLI app into a simple web application using Flask.
+- Package the project with a requirements.txt file for deployment.
